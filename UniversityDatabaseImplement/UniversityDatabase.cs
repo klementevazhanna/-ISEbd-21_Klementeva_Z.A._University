@@ -17,5 +17,15 @@ namespace UniversityDatabaseImplement
         public virtual DbSet<User> Users { set; get; }
 
         public virtual DbSet<Education> Educations { set; get; }
+
+        public virtual DbSet<Discipline> Disciplines { set; get; }
+
+        public virtual DbSet<EducationDiscipline> EducationsDisciplines { set; get; }
+
+        public virtual DbSet<Payment> Payments { set; get; }
+
+        public virtual DbSet<CostItemEducation> CostItemsEducations { set; get; }
+
+        public virtual DbSet<CostItem> CostItems { set; get; }
     }
 }

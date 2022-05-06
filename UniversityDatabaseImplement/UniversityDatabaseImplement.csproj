@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+	<LangVersion>9.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Implements\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
 
@@ -16,6 +16,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UniversityContracts\UniversityContracts.csproj" />
   </ItemGroup>
 
 </Project>

@@ -10,6 +10,10 @@ namespace UniversityContracts.StoragesContracts
 
         List<EducationViewModel> GetFilteredList(EducationBindingModel model);
 
+        List<EducationViewModel> GetFilteredByDateList(EducationBindingModel model);
+
+        List<EducationViewModel> GetFilteredByPickList(EducationBindingModel model);
+
         EducationViewModel GetElement(EducationBindingModel model);
 
         void Insert(EducationBindingModel model);

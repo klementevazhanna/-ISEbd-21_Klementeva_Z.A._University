@@ -4,23 +4,20 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UniversityDatabaseImplement.Models
 {
-    public class User
+    public class Discipline
     {
         public int Id { get; set; }
 
         [Required]
-        public string FIO { get; set; }
+        public string Name { get; set; }
 
         [Required]
-        public string Email { get; set; }
+        public decimal Price { get; set; }
 
-        [Required]
-        public string Password { get; set; }
+        [ForeignKey("DisciplineId")]
+        public virtual List<EducationDiscipline> EducationsDisciplines { get; set; }
 
-        [ForeignKey("UserId")]
-        public virtual List<Education> Educations { get; set; }
-
-        [ForeignKey("UserId")]
+        [ForeignKey("DisciplineId")]
         public virtual List<Payment> Payments { get; set; }
     }
 }

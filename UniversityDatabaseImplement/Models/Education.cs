@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,12 +13,22 @@ namespace UniversityDatabaseImplement.Models
         public string Name { get; set; }
 
         [Required]
-        public decimal Price { get; set; }
+        public int Count { get; set; }
+
+        [Required]
+        public decimal Cost { get; set; }
+
+        [Required]
+        public DateTime EducationDate { get; set; }
+
+        public int UserId { get; set; }
+
+        public virtual User User { get; set; }
 
         [ForeignKey("EducationId")]
-        public List<EducationDiscipline> EducationDisciplines { get; set; }
+        public virtual List<EducationDiscipline> EducationsDisciplines { get; set; }
 
         [ForeignKey("EducationId")]
-        public List<Payment> Payment { get; set; }
+        public virtual List<CostItemEducation> CostItemsEducations { get; set; }
     }
 }

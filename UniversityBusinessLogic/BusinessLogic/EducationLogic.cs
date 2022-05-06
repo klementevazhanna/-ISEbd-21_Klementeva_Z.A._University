@@ -51,11 +51,11 @@ namespace UniversityBusinessLogic.BusinessLogic
 
         public void Delete(EducationBindingModel model)
         {
-            var element = _educationStorage.GetElement(new EducationBindingModel
+            var education = _educationStorage.GetElement(new EducationBindingModel
             {
                 Id = model.Id
             });
-            if (element == null)
+            if (education == null)
             {
                 throw new Exception("Обучение не найдено");
             }

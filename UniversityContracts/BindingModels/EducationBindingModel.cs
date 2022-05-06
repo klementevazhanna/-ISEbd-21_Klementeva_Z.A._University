@@ -23,7 +23,7 @@ namespace UniversityContracts.BindingModels
         public decimal Cost { get; set; }
 
         [DataMember]
-        public DateTime DateVisit { get; set; }
+        public DateTime EducationDate { get; set; }
 
         [DataMember]
         public DateTime? DateFrom { get; set; }
@@ -32,7 +32,7 @@ namespace UniversityContracts.BindingModels
         public DateTime? DateTo { get; set; }
 
         [DataMember]
-        public Dictionary<int, string> Disciplines { get; set; }
+        public Dictionary<int, string> EducationDisciplines { get; set; }
 
         [DataMember]
         public List<int> PickedEducations { get; set; }
