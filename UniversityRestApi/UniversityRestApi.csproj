@@ -5,11 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.16">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UniversityBusinessLogic\UniversityBusinessLogic.csproj" />
+    <ProjectReference Include="..\UniversityContracts\UniversityContracts.csproj" />
+    <ProjectReference Include="..\UniversityDatabaseImplement\UniversityDatabaseImplement.csproj" />
   </ItemGroup>
 
 </Project>

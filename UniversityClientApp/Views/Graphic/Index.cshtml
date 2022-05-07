@@ -1,0 +1,60 @@
+﻿@using System.Web
+@model UniversityContracts.ViewModels.GraphicViewModel[]
+
+@{ ViewData["Title"] = "Diagram"; }
+
+<div class="text-center">
+    <form asp-action="Index">
+        <div id="Count"></div>
+        <div id="Price"></div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(Count);
+    google.charts.setOnLoadCallback(Price);
+    @if (Model != null) {
+        <text>
+    function Count() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model[0].ColumnName))');
+            data.addColumn('number', '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model[0].ValueName))');
+          @foreach (var row in Model[0].Data) {
+          <text>
+          data.addRow(['@Html.Raw(HttpUtility.JavaScriptStringEncode(row.Item1))', @row.Item2]);
+          </text>
+          }
+                    var options = {
+              'title': '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model[0].Title))',
+                       'width':1200,
+                       'height':900};
+        var chart = new google.visualization.PieChart(document.getElementById('Count'));
+
+        console.log(options);
+            chart.draw(data, options);
+        }
+    function Price() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model[1].ColumnName))');
+            data.addColumn('number', '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model[1].ValueName))');
+          @foreach (var row in Model[1].Data) {
+          <text>
+          data.addRow(['@Html.Raw(HttpUtility.JavaScriptStringEncode(row.Item1))', @row.Item2]);
+          </text>
+          }
+                    var options = {
+              'title': '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model[1].Title))',
+                       'width':1200,
+                       'height':900};
+        var chart = new google.visualization.ColumnChart(document.getElementById('Price'));
+            chart.draw(data, options);
+        }
+        </text>
+    }
+</script>

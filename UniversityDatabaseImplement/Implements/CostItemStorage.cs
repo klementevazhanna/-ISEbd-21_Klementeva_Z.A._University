@@ -32,8 +32,7 @@ namespace UniversityDatabaseImplement.Implements
             using var transaction = context.Database.BeginTransaction();
             try
             {
-                context.CostItems.Add(CreateModel(model, new CostItem(), context));
-                context.SaveChanges();
+                CreateModel(model, new CostItem(), context);
                 transaction.Commit();
             }
             catch
@@ -97,6 +96,12 @@ namespace UniversityDatabaseImplement.Implements
         {
             costItem.Sum = model.Sum;
             costItem.Name = model.Name;
+
+            if (costItem.Id == 0)
+            {
+                context.CostItems.Add(costItem);
+                context.SaveChanges();
+            }
 
             if (model.Id.HasValue)
             {

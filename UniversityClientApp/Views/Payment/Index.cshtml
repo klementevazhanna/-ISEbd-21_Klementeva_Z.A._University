@@ -1,0 +1,51 @@
+﻿@model UniversityContracts.BindingModels.PaymentBindingModel
+@{ ViewData["Title"] = "Payment"; }
+<div class="text-center">
+    <h2 class="display-4">Оплата дисциплин</h2>
+</div>
+<form method="post">
+    <div class="row">
+        <div class="col-4">Обучение:</div>
+        <div class="col-8">
+            <input type="text" name="education" id="education" value="@ViewBag.Education.Name" readonly="true" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">Дисциплина:</div>
+        <div class="col-8">
+            <select id="DisciplineId" name="DisciplineId" class="form-control" asp-items="ViewBag.Discipline"></select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">Внесённая сумма:</div>
+        <div class="col-8"><input type="text" name="Sum" id="Sum" /></div>
+    </div>
+    <div class="row">
+        <div class="col-4">Сумма к оплате:</div>
+        <div class="col-8">
+            <input type="text" id="disciplineSum" name="disciplineSum" value="@ViewBag.Discipline.Items[0].PriceToPay" readonly="true" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-8">
+            <input asp-action="Index" type="submit" value="Оплатить" class="btn btn-primary" />
+        </div>
+    </div>
+</form>
+<script>$('#DisciplineId').on('click', function () {
+        check();
+    });
+    function check() {
+        var Id = $('#DisciplineId').val();
+        if (Id) {
+            $.ajax({
+                method: "POST",
+                url: "/Payment/CalcSum",
+                data: { Id: Id},
+                success: function (result) {
+                    $("#disciplineSum").val(result);
+                }
+            });
+        };
+    }</script>

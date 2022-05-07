@@ -47,7 +47,7 @@ namespace UniversityBusinessLogic.OfficePackage
                     {
                         ColumnName = "C",
                         RowIndex = rowIndex,
-                        Text = discipline.PriceToPay.ToString(),
+                        Text = discipline.Price.ToString(),
                         StyleInfo = ExcelStyleInfoType.TextWithBroder
                     });
 
@@ -58,7 +58,7 @@ namespace UniversityBusinessLogic.OfficePackage
                 {
                     ColumnName = "C",
                     RowIndex = rowIndex,
-                    Text = education.CostToPay.ToString(),
+                    Text = education.Cost.ToString(),
                     StyleInfo = ExcelStyleInfoType.Text
                 });
 

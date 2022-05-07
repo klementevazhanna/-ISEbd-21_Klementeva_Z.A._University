@@ -119,8 +119,7 @@ namespace UniversityDatabaseImplement.Implements
             using var transaction = context.Database.BeginTransaction();
             try
             {
-                context.Educations.Add(CreateModel(model, new Education(), context));
-                context.SaveChanges();
+                CreateModel(model, new Education(), context);
                 transaction.Commit();
             }
             catch
@@ -199,6 +198,12 @@ namespace UniversityDatabaseImplement.Implements
             education.Name = model.Name;
             education.EducationDate = model.EducationDate;
             education.UserId = model.UserId.Value;
+
+            if (education.Id == 0)
+            {
+                context.Educations.Add(education);
+                context.SaveChanges();
+            }
 
             if (model.Id.HasValue)
             {

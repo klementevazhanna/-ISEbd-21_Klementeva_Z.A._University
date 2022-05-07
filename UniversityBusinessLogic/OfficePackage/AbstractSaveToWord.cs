@@ -47,7 +47,7 @@ namespace UniversityBusinessLogic.OfficePackage
                     {
                         Texts = new List<(string, WordTextProperties)>
                         {
-                            (discipline.Name, new WordTextProperties { Size = "24", Bold = false })
+                            ("\t" + discipline.Name, new WordTextProperties { Size = "24", Bold = false })
                         },
                         TextProperties = new WordTextProperties
                         {
