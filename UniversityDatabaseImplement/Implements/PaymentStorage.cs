@@ -45,11 +45,11 @@ namespace UniversityDatabaseImplement.Implements
             }
 
             using var context = new UniversityDatabase();
-            var route = context.Payments
+            var payment = context.Payments
                 .Include(rec => rec.User)
                 .Include(rec => rec.Discipline)
                 .FirstOrDefault(rec => rec.Id == model.Id);
-            return route != null ? CreateModel(route) : null;
+            return payment != null ? CreateModel(payment) : null;
         }
 
         public void Insert(PaymentBindingModel model)

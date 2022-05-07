@@ -11,9 +11,9 @@ namespace UniversityBusinessLogic.BusinessLogic
     {
         private readonly IPaymentStorage _paymentStorage;
 
-        public PaymentLogic(IPaymentStorage routeStorage)
+        public PaymentLogic(IPaymentStorage paymentStorage)
         {
-            _paymentStorage = routeStorage;
+            _paymentStorage = paymentStorage;
         }
 
         public List<PaymentViewModel> Read(PaymentBindingModel model)

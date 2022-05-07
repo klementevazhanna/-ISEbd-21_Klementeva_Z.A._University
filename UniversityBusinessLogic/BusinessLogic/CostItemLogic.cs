@@ -10,9 +10,9 @@ namespace UniversityBusinessLogic.BusinessLogic
     {
         private readonly ICostItemStorage _costItemStorage;
 
-        public CostItemLogic(ICostItemStorage routeStorage)
+        public CostItemLogic(ICostItemStorage costItemStorage)
         {
-            _costItemStorage = routeStorage;
+            _costItemStorage = costItemStorage;
         }
 
         public CostItemViewModel GetElement(CostItemBindingModel model)

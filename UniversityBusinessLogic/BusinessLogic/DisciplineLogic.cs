@@ -11,9 +11,9 @@ namespace UniversityBusinessLogic.BusinessLogic
     {
         private readonly IDisciplineStorage _disciplineStorage;
 
-        public DisciplineLogic(IDisciplineStorage routeStorage)
+        public DisciplineLogic(IDisciplineStorage disciplineStorage)
         {
-            _disciplineStorage = routeStorage;
+            _disciplineStorage = disciplineStorage;
         }
 
         public List<DisciplineViewModel> Read(DisciplineBindingModel model)
